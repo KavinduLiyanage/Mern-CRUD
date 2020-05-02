@@ -1,10 +1,72 @@
 import React, {Component} from 'react';
 
 class CreateComponent extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onChangeProductName = this.onChangeProductName.bind(this);
+        this.onChangeProductDes = this.onChangeProductDes.bind(this);
+        this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
+        this.onSubmit = this.onSubmit .bind(this);
+
+        this.state = {
+            productName: '',
+            productDes: '',
+            productPrice: ''
+        }
+    }
+
+    onChangeProductName(e) {
+        this.setState( {
+            productName: e.target.value
+        });
+    }
+
+    onChangeProductDes(e) {
+        this.setState( {
+            productDes: e.target.value
+        });
+    }
+
+    onChangeProductPrice(e) {
+        this.setState( {
+            productPrice: e.target.value
+        });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        console.log(`The values are ${this.state.productName},${this.state.productDes}, and ${this.state.productPrice}`);
+        this.setState( {
+            productName: '',
+            productDes: '',
+            productPrice: ''
+        })
+    }
+
+
     render() {
         return (
-            <div>
-                <p>welcome to create component</p>
+            <div style={{marginTop: 10}}>
+                <h3>Add New Product</h3>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Name</label>
+                        <input type="text" className="form-control" value={this.state.productName} onChange={this.onChangeProductName}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Description</label>
+                        <input type="text" className="form-control" value={this.state.productDes} onChange={this.onChangeProductDes}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Price</label>
+                        <input type="text" className="form-control" value={this.state.productPrice} onChange={this.onChangeProductPrice}/>
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Add Product" className="btn btn-primary"/>
+                    </div>
+                </form>
             </div>
         );
     }
