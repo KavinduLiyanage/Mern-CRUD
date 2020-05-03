@@ -1,7 +1,7 @@
 const express = require('express');
 const productRoutes = express.Router();
 
-let Product = require('./product.model');
+let Product = require('../models/product.model');
 
 //add data
 productRoutes.route('/add').post(function (req,res) {

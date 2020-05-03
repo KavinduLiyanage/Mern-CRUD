@@ -67,6 +67,23 @@ class EditComponent extends Component {
         return (
             <div>
                 <p>welcome to edit component</p>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Name</label>
+                        <input type="text" className="form-control" value={this.state.productName} onChange={this.onChangeProductName}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Description</label>
+                        <input type="text" className="form-control" value={this.props.productDes} onChange={this.onChangeProductDes}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Product Price</label>
+                        <input type="text" className="form-control" value={this.state.productPrice} onChange={this.onChangeProductPrice}/>
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Add Product" className="btn btn-primary"/>
+                    </div>
+                </form>
             </div>
         );
     }
