@@ -30,11 +30,11 @@ class App extends Component{
                         </div>
                     </nav>
                     <h2>welcome to react crud</h2>
-                    <switch>
+                    <Switch>
                         <Route exact path = '/create' component = {CreateComponent}/>
                         <Route exact path = '/edit/:id' component = {EditComponent}/>
                         <Route exact path = '/index' component = {IndexComponent}/>
-                    </switch>
+                    </Switch>
                 </div>
             </Router>
         );
