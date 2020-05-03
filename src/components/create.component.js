@@ -10,7 +10,7 @@ class CreateComponent extends Component {
         this.onChangeProductName = this.onChangeProductName.bind(this);
         this.onChangeProductDes = this.onChangeProductDes.bind(this);
         this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
-        this.onSubmit = this.onSubmit .bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             productName: '',

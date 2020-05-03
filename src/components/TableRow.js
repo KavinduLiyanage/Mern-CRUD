@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import {Link} from 'react-router-dom';
+
 class TableRow extends Component {
     render() {
         return (
@@ -14,7 +16,7 @@ class TableRow extends Component {
                     {this.props.obj.productPrice}
                 </td>
                 <td>
-                    <button className="btn btn-primary" >Edit</button>
+                    <Link to={"/edit/" + this.props.obj._id} className="btn btn-primary">Edit</Link>
                 </td>
                 <td>
                     <button className="btn btn-danger" >Delete</button>
