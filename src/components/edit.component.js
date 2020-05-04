@@ -74,14 +74,14 @@ class EditComponent extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Product Description</label>
-                        <input type="text" className="form-control" value={this.props.productDes} onChange={this.onChangeProductDes}/>
+                        <input type="text" className="form-control" value={this.state.productDes} onChange={this.onChangeProductDes}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Product Price</label>
                         <input type="text" className="form-control" value={this.state.productPrice} onChange={this.onChangeProductPrice}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Add Product" className="btn btn-primary"/>
+                        <input type="submit" value="Update" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
