@@ -1,9 +1,10 @@
 const express = require('express');
 const productRoutes = express.Router();
 
+// Product Model
 let Product = require('../models/product.model');
 
-//add data
+// Defined store route
 productRoutes.route('/add').post(function (req,res) {
     let product = new Product(req.body);
     product.save()
@@ -15,7 +16,7 @@ productRoutes.route('/add').post(function (req,res) {
         });
 });
 
-//get data
+// Defined get data(index or listing) route
 productRoutes.route('/').get(function (req,res) {
     Product.find(function (err, product) {
         if(err)
@@ -25,7 +26,7 @@ productRoutes.route('/').get(function (req,res) {
     });
 });
 
-//edit data
+// Defined edit route
 productRoutes.route('/edit/:id').get(function (req,res) {
     let id = req.params.id;
     Product.findById(id, function (err, product) {
@@ -33,7 +34,7 @@ productRoutes.route('/edit/:id').get(function (req,res) {
     });
 });
 
-//update
+//  Defined update route
 productRoutes.route('/update/:id').post(function (req, res) {
     Product.findById(req.params.id, function (err, product) {
         if (!product)
@@ -55,7 +56,7 @@ productRoutes.route('/update/:id').post(function (req, res) {
 
 //delete data
 productRoutes.route('/delete/:id').get(function (req,res) {
-    Product.findByIdAndRemove({id: req.params.id}, function (err, product) {
+    Product.findByIdAndRemove({_id: req.params.id}, function (err, product) {
         if (err)res.json(err);
         else res.json('Successfully removed');
     });
