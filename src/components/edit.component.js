@@ -19,17 +19,18 @@ class EditComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/product/edit' +this.props.match.params.id)
+        axios.get('http://localhost:4000/product/edit/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    productName : response.data.productName,
-                    productDes : response.data.productDes,
-                    productPrice : response.data.productPrice
+                    productName: response.data.productName,
+                    productDes: response.data.productDes,
+                    productPrice: response.data.productPrice
                 });
             })
             .catch(function (error) {
                 console.log(error);
             })
+
     }
 
     onChangeProductName(e) {
@@ -57,7 +58,7 @@ class EditComponent extends Component {
             productDes: this.state.productDes,
             productPrice: this.state.productPrice
         };
-        axios.post('http://localhost:4000/product/update'+ this.props.match.params.id, obj)
+        axios.post('http://localhost:4000/product/update/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         this.props.history.push('/index');

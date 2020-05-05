@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
-import CreateComponent from "./components/create.component";
-import EditComponent from "./components/edit.component";
-import IndexComponent from "./components/index.component";
+import Create from "./components/create.component";
+import Edit from "./components/edit.component";
+import Index from "./components/index.component";
 import './App.css';
 
 class App extends Component{
@@ -33,9 +33,9 @@ class App extends Component{
 
                     <Switch>
 
-                        <Route exact path = '/create' component = {CreateComponent}/>
-                        <Route exact path = '/edit/:id' component = {EditComponent}/>
-                        <Route exact path = '/index' component = {IndexComponent}/>
+                        <Route exact path = '/create' component = { Create }/>
+                        <Route path = '/edit/:id' component = { Edit }/>
+                        <Route path = '/index' component = { Index }/>
                     </Switch>
                 </div>
             </Router>
