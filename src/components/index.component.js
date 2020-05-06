@@ -20,6 +20,17 @@ class IndexComponent extends Component {
                 console.log(error);
             })
     }
+/*
+    componentDidUpdate() {
+        axios.get('http://localhost:4000/product')
+            .then(response => {
+                this.setState({product : response.data});
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+*/
     tabRow() {
         return this.state.product.map( function (object, i) {
             return <TableRow obj={object} key={i}/>;
