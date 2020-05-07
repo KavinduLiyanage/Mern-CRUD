@@ -32,7 +32,6 @@ class App extends Component{
                     <h2>welcome to react crud</h2>
 
                     <Switch>
-
                         <Route exact path = '/create' component = { Create }/>
                         <Route path = '/edit/:id' component = { Edit }/>
                         <Route path = '/index' component = { Index }/>

@@ -58,9 +58,12 @@ class EditComponent extends Component {
             productDes: this.state.productDes,
             productPrice: this.state.productPrice
         };
+
+        //post change to put
         axios.post('http://localhost:4000/product/update/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
+        // Redirect to Product List
         this.props.history.push('/index');
     }
 

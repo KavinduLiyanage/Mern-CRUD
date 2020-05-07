@@ -7,11 +7,13 @@ class CreateComponent extends Component {
     constructor(props) {
         super(props);
 
+        // Setting up functions
         this.onChangeProductName = this.onChangeProductName.bind(this);
         this.onChangeProductDes = this.onChangeProductDes.bind(this);
         this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
+        // Setting up state
         this.state = {
             productName: '',
             productDes: '',
@@ -44,13 +46,15 @@ class CreateComponent extends Component {
             productDes: this.state.productDes,
             productPrice: this.state.productPrice
         };
-        axios.post('http://localhost:4000/product/add', obj).then(res => console.log(res.data));
+        axios.post('http://localhost:4000/product/add', obj)
+            .then(res => console.log(res.data));
 
         this.setState( {
             productName: '',
             productDes: '',
             productPrice: ''
         })
+        this.props.history.push('/index');
     }
 
     render() {
