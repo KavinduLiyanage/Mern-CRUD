@@ -19,7 +19,7 @@ class EditComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/product/edit/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/products/edit/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     productName: response.data.productName,
@@ -60,11 +60,11 @@ class EditComponent extends Component {
         };
 
         //post change to put
-        axios.post('http://localhost:4000/product/update/'+ this.props.match.params.id, obj)
+        axios.post('http://localhost:4000/products/update/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         // Redirect to Product List
-        this.props.history.push('/index');
+        this.props.history.push('/list');
     }
 
     render() {

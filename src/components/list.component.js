@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import TableRow from './TableRow';
+import TableRowComponent from './tableRow.component';
 
-class IndexComponent extends Component {
+class ListComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -12,7 +12,7 @@ class IndexComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/product')
+        axios.get('http://localhost:4000/products')
             .then(response => {
                 this.setState({
                     product : response.data
@@ -24,18 +24,20 @@ class IndexComponent extends Component {
     }
 
     componentDidUpdate() {
-        axios.get('http://localhost:4000/product')
+        axios.get('http://localhost:4000/products')
             .then(response => {
-                this.setState({product : response.data});
+                this.setState({
+                    product : response.data
+                });
             })
             .catch(function (error) {
                 console.log(error);
             })
     }
 
-    tabRow() {
+    productList() {
         return this.state.product.map( function (object, i) {
-            return <TableRow obj={object} key={i}/>;
+            return <TableRowComponent obj={object} key={i}/>;
         });
     }
 
@@ -53,7 +55,7 @@ class IndexComponent extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.tabRow()}
+                    {this.productList()}
                     </tbody>
                 </table>
             </div>
@@ -61,4 +63,4 @@ class IndexComponent extends Component {
     }
 }
 
-export default IndexComponent;
+export default ListComponent;

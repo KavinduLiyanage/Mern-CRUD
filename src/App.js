@@ -4,7 +4,7 @@ import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 import Create from "./components/create.component";
 import Edit from "./components/edit.component";
-import Index from "./components/index.component";
+import List from "./components/list.component";
 import './App.css';
 
 class App extends Component{
@@ -24,7 +24,7 @@ class App extends Component{
                                     <Link to={'/create'} className="nav-link">Create</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={'/index'} className="nav-link">Index</Link>
+                                    <Link to={'/list'} className="nav-link">Product List</Link>
                                 </li>
                             </ul>
                         </div>
@@ -34,7 +34,7 @@ class App extends Component{
                     <Switch>
                         <Route exact path = '/create' component = { Create }/>
                         <Route path = '/edit/:id' component = { Edit }/>
-                        <Route path = '/index' component = { Index }/>
+                        <Route path = '/list' component = { List }/>
                     </Switch>
                 </div>
             </Router>

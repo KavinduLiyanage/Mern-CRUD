@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use('/product', productRoute);
+app.use('/products', productRoute);
 
 //PORT
 app.listen(PORT,function () {

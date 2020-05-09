@@ -46,7 +46,7 @@ class CreateComponent extends Component {
             productDes: this.state.productDes,
             productPrice: this.state.productPrice
         };
-        axios.post('http://localhost:4000/product/add', obj)
+        axios.post('http://localhost:4000/products/add', obj)
             .then(res => console.log(res.data));
 
         this.setState( {
@@ -54,7 +54,7 @@ class CreateComponent extends Component {
             productDes: '',
             productPrice: ''
         })
-        this.props.history.push('/index');
+        this.props.history.push('/list');
     }
 
     render() {
