@@ -13,7 +13,8 @@ const productRoute = require('./routes/product.route');
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(()=> {
     console.log('Database is connected')
     },
@@ -35,3 +36,6 @@ app.use('/products', productRoute);
 app.listen(PORT,function () {
     console.log('Server is running on port : ',PORT);
 });
+
+
+
